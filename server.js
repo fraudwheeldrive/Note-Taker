@@ -1,5 +1,7 @@
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
+
 // api route 
 const { notes } = require ('./db/db.json');
 //port
@@ -15,28 +17,34 @@ app.use(express.json());
 // on launch need to get Notes HTML, Load saved notes, listen
 
 //notes by ID
-function findById(id, notesArray) {
-    const result = notesArray.filter(note => note.id ===id ) [0];
+function findById(id, noteArray) {
+    const result = noteArray.filter(note => note.id === id ) [0];
     return result;
 }
 
-
 //create notes 
 function createNewNote (body, noteArray) {
-    console.log(body);
-   
+    const note = body;
+    noteArray.push(note);
+    fs.writeFileSync ( 
+        path.join(__dirname, './db/db.json'),
+        JSON.stringify({ notes: noteArray }, null, 2)
+        );
+  
     //return finished ccode to post route for response
-    return body;
+    return note;
 }
 
 // get route 
-app.get('/api/notes', (req, res) => {
-    let results = notes;
-    console.log(req.query)
-    res.json(results);
-});
+//app.get('/api/notes', (req, res) => {
+//    let results = notes;
+//    if (req.query) {
+//   results =filterByQuery(req.query, results);
+//    }
+//    res.json(results);
+//});
 
-//specific note
+//return note by id 
 app.get('/api/notes/:id', (req, res) => {
     const results = findById (req.params.id, notes);
     if (result) {
@@ -52,7 +60,11 @@ app.get('/api/notes/:id', (req, res) => {
 app.post('/api/notes', (req, res) => {
     req.body.id = notes.length.toString();
 
-    res.json(req.body);
+   // add note
+   
+    const notes =createNewNote(req.body, notes);
+
+    res.json(animal);
    
 });
 
