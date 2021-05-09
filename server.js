@@ -14,12 +14,18 @@ app.use(express.json());
 
 // on launch need to get Notes HTML, Load saved notes, listen
 
-//filter notes 
+//notes by ID
+function findById(id, notesArray) {
+    const result = notesArray.filter(note => note.id ===id ) [0];
+    return result;
+}
+
 
 //create notes 
 function createNewNote (body, noteArray) {
     console.log(body);
-    
+   
+    //return finished ccode to post route for response
     return body;
 }
 
@@ -30,11 +36,24 @@ app.get('/api/notes', (req, res) => {
     res.json(results);
 });
 
-//post route
+//specific note
+app.get('/api/notes/:id', (req, res) => {
+    const results = findById (req.params.id, notes);
+    if (result) {
+        res.json(result);
+    } else {
+        res.send(404);
+    }
+    
+});
+
+//post route add ID's
 
 app.post('/api/notes', (req, res) => {
-    console.log(req.body);
+    req.body.id = notes.length.toString();
+
     res.json(req.body);
+   
 });
 
 // Listener 
