@@ -77,6 +77,11 @@ app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
 });
 
+app.get('*', (req, res) => {
+    console.log('click');
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
 // Listener 
 app.listen(PORT, () => {
     console.log (`API server now on port ${PORT}`);
