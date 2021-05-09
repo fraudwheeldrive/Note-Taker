@@ -4,11 +4,13 @@ const fs = require('fs');
 //notes route
 const { notes } = require ('./db/db.json');
 
+//port
+const PORT = process.env.PORT || 3001;
+
 //instantiate the server
 const app = express()
 
-//port
-const PORT = process.env.PORT || 3001;
+
 
 // on launch need to get Notes HTML, Load saved notes, listen
 
