@@ -4,9 +4,15 @@ const path = require('path');
 
 const apiRoutes = require('./API_routes/apiRoutes');
 const htmlRoutes = require('./API_routes/htmlRoutes');
+//const IndexRoutes =require('./API_routes/index')
 
 //instantiate the server
 const app = express()
+
+// add css and js from public 
+app.use(express.static(__dirname + '/public'));
+app.use(express.static('./'));
+
 
 //api route 
 app.use('/api', apiRoutes);
@@ -15,13 +21,10 @@ app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 
 //middleware 
-app.use(express.urlencoded({ extended: true }));
-//parse incoming data as json 
 app.use(express.json());
-// add css and js from public 
-app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 
-// port 
+
 //port
 const PORT = process.env.PORT || 3001;
 
