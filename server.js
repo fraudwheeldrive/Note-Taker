@@ -1,9 +1,9 @@
 // packages 
 const express = require('express');
-const path = require('path');
+//const path = require('path');
 
-const apiRoutes = require('./API_routes/apiRoutes');
-const htmlRoutes = require('./API_routes/htmlRoutes');
+//const apiRoutes = require('./API_routes/apiRoutes');
+//const htmlRoutes = require('./API_routes/htmlRoutes');
 //const IndexRoutes =require('./API_routes/index')
 
 //instantiate the server
@@ -15,10 +15,10 @@ app.use(express.static('./'));
 
 
 //api route 
-app.use('/api', apiRoutes);
+app.use('/api' , require('./API_routes/apiRoutes'));
 
 // html route 
-app.use('/', htmlRoutes);
+app.use('/', require("./API_routes/htmlRoutes"));
 
 //middleware 
 app.use(express.json());
