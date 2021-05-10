@@ -23,10 +23,10 @@ to edit or:
 
 ## screenshots 
 landing page 
-![alt text](https://github.com/fraudwheeldrive/Team-Profile_generator/blob/main/assets/images/jest-test.PNG)
+![alt text](https://github.com/fraudwheeldrive/Note-Taker/blob/main/public/assets/images/note-taker%20landing.PNG)
 
 app page 
-![alt text](https://github.com/fraudwheeldrive/Team-Profile_generator/blob/main/assets/images/team%20profile%20generator%201.PNG)
+![alt text](https://github.com/fraudwheeldrive/Note-Taker/blob/main/public/assets/images/note-taker%20app%20page.PNG)
 
 
 
