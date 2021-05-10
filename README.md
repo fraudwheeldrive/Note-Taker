@@ -16,6 +16,7 @@ This application is built using Javascript, CSS, HTML as well as node.js, and uu
 
 ## How to Use
 * use "NPM start" on the Commandline to start server, navigate to http://localhost:3001/ once server is live 
+*  or navigate to deployed link at https://fast-everglades-72324.herokuapp.com/
 * this will bring you to the landing page, click "get started" to get started. 
 * this brings you to the next page where you will be presented with a right column that is populated with saved notes, you can click on the note here 
 to edit or:
@@ -28,6 +29,8 @@ landing page
 app page 
 ![alt text](https://github.com/fraudwheeldrive/Note-Taker/blob/main/public/assets/images/note-taker%20app%20page.PNG)
 
+##deployed Link
+https://fast-everglades-72324.herokuapp.com/
 
 
 ## References 
